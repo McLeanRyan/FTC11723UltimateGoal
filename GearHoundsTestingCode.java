@@ -101,10 +101,11 @@ public class GearHoundsTestingCode extends OpMode {
 
         /*if (gamepad2.a) {
 
-        }
+        }*/
 
         if (gamepad2.b) {
-
-        }*/
+            flipLeft.setPosition(0);
+            flipRight.setPosition(0);
+        }
     }
 }
