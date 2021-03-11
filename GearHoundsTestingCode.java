@@ -37,12 +37,14 @@ public class GearHoundsTestingCode extends OpMode {
 
         telemetry.addLine("Initialization Complete");
         telemetry.addLine("Press Play to Start");
+        telemetry.update();
     }
 
     @Override
     public void loop() {
         telemetry.addData("flipLeft Pos:", flipLeft.getPosition());
         telemetry.addData("flipRight Pos:", flipRight.getPosition());
+        telemetry.update();
 
         double px = gamepad1.left_stick_x;
         if (Math.abs(px) < 0.05) px = 0;
@@ -109,7 +111,8 @@ public class GearHoundsTestingCode extends OpMode {
         }
 
         /*if (gamepad2.a) {
-
+            flipLeft.setPosition(0.4);
+            flipRight.setPosition(0.4);
         }*/
 
         if (gamepad2.b) {
