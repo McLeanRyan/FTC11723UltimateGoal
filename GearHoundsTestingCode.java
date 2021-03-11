@@ -40,6 +40,9 @@ public class GearHoundsTestingCode extends OpMode {
 
     @Override
     public void loop() {
+        telemetry.addData("flipLeft Pos:", flipLeft.getPosition());
+        telemetry.addData("flipRight Pos:", flipRight.getPosition());
+        
         double px = gamepad1.left_stick_x;
         if (Math.abs(px) < 0.05) px = 0;
         double py = -gamepad1.left_stick_y;
