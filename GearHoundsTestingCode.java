@@ -1,10 +1,11 @@
 package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
+import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.Servo;
-
+@TeleOp
 public class GearHoundsTestingCode extends OpMode {
     private DcMotor leftFront = null;
     private DcMotor leftBack = null;
@@ -42,7 +43,7 @@ public class GearHoundsTestingCode extends OpMode {
     public void loop() {
         telemetry.addData("flipLeft Pos:", flipLeft.getPosition());
         telemetry.addData("flipRight Pos:", flipRight.getPosition());
-        
+
         double px = gamepad1.left_stick_x;
         if (Math.abs(px) < 0.05) px = 0;
         double py = -gamepad1.left_stick_y;
