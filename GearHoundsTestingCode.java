@@ -42,6 +42,7 @@ public class GearHoundsTestingCode extends OpMode {
 
     @Override
     public void loop() {
+        telemetry.clearAll();
         telemetry.addData("flipLeft Pos:", flipLeft.getPosition());
         telemetry.addData("flipRight Pos:", flipRight.getPosition());
         telemetry.update();
