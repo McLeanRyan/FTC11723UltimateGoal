@@ -2,6 +2,7 @@ package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
+import com.qualcomm.robotcore.hardware.CRServo;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.Servo;
@@ -14,8 +15,8 @@ public class GearHoundsTestingCode extends OpMode {
     private DcMotor flywheelLeft = null;
     private DcMotor flywheelRight = null;
     private DcMotor conveyor = null;
-    private Servo flipLeft = null;
-    private Servo flipRight = null;
+    private CRServo flipLeft = null;
+    private CRServo flipRight = null;
 
     @Override
     public void init() {
@@ -26,14 +27,14 @@ public class GearHoundsTestingCode extends OpMode {
         flywheelLeft = hardwareMap.dcMotor.get("flywheelLeft");
         flywheelRight = hardwareMap.dcMotor.get("flywheelRight");
         conveyor = hardwareMap.dcMotor.get("conveyor");
-        flipLeft = hardwareMap.servo.get("flipLeft");
-        flipRight = hardwareMap.servo.get("flipRight");
+        flipLeft = hardwareMap.crservo.get("flipLeft");
+        flipRight = hardwareMap.crservo.get("flipRight");
 
         leftFront.setDirection(DcMotorSimple.Direction.REVERSE);
         leftBack.setDirection(DcMotorSimple.Direction.REVERSE);
 
-        telemetry.addData("flipLeft Pos:", flipLeft.getPosition());
-        telemetry.addData("flipRight Pos:", flipRight.getPosition());
+        /*telemetry.addData("flipLeft Pos:", flipLeft.getPosition());
+        telemetry.addData("flipRight Pos:", flipRight.getPosition());*/
 
         telemetry.addLine("Initialization Complete");
         telemetry.addLine("Press Play to Start");
@@ -42,10 +43,10 @@ public class GearHoundsTestingCode extends OpMode {
 
     @Override
     public void loop() {
-        telemetry.clearAll();
+        /*telemetry.clearAll();
         telemetry.addData("flipLeft Pos:", flipLeft.getPosition());
         telemetry.addData("flipRight Pos:", flipRight.getPosition());
-        telemetry.update();
+        telemetry.update();*/
 
         double px = gamepad1.left_stick_x;
         if (Math.abs(px) < 0.05) px = 0;
@@ -114,11 +115,27 @@ public class GearHoundsTestingCode extends OpMode {
         /*if (gamepad2.a) {
             flipLeft.setPosition(0.4);
             flipRight.setPosition(0.4);
-        }*/
+        }
 
         if (gamepad2.b) {
             flipLeft.setPosition(0);
             flipRight.setPosition(0);
+        }*/
+
+        if(gamepad2.a) {
+            flipLeft.setPower(0.75);
+            flipRight.setPower(-0.75);
+        }else{
+            flipLeft.setPower(0);
+            flipRight.setPower(0);
+        }
+
+        if(gamepad2.b) {
+            flipLeft.setPower(-0.75);
+            flipRight.setPower(0.75);
+        }else {
+            flipLeft.setPower(0);
+            flipRight.setPower(0);
         }
     }
 }
