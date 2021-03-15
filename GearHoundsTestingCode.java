@@ -74,28 +74,28 @@ public class GearHoundsTestingCode extends OpMode {
             leftFront.setPower(1);
             leftBack.setPower(-1);
             rightFront.setPower(-1);
-            leftBack.setPower(1);
+            rightBack.setPower(1);
         }
 
         while (gamepad1.left_trigger > 0.2)       {
             leftFront.setPower(-1);
             leftBack.setPower(1);
             rightFront.setPower(1);
-            leftBack.setPower(-1);
+            rightBack.setPower(-1);
         }
 
         while (gamepad1.right_bumper)    {
             leftFront.setPower(0.5);
             leftBack.setPower(-0.5);
             rightFront.setPower(-0.5);
-            leftBack.setPower(0.5);
+            rightBack.setPower(0.5);
         }
 
         while (gamepad1.left_bumper)       {
             leftFront.setPower(-0.5);
             leftBack.setPower(0.5);
             rightFront.setPower(0.5);
-            leftBack.setPower(-0.5);
+            rightBack.setPower(-0.5);
         }
 
         if (gamepad2.right_bumper) {
